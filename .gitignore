@@ -1,0 +1,23 @@
+# Secrets
+.env
+**/.env
+**/.env.local
+**/application-local.yml
+**/application-local.yaml
+
+# Build outputs
+agent/target/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Logs
+*.log
+logs/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

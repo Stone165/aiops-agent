@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS incidents;
+DROP TABLE IF EXISTS diagnosis_records;
+
+CREATE TABLE incidents (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description VARCHAR(5000) NOT NULL,
+    device_id VARCHAR(100),
+    severity VARCHAR(20) NOT NULL DEFAULT 'MEDIUM',
+    status VARCHAR(20) NOT NULL DEFAULT 'OPEN',
+    root_cause VARCHAR(5000),
+    solution VARCHAR(5000),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE diagnosis_records (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    device_id VARCHAR(100) NOT NULL,
+    description VARCHAR(5000) NOT NULL,
+    answer VARCHAR(20000),
+    tool_call_count INT NOT NULL DEFAULT 0,
+    tool_results VARCHAR(20000),
+    simulated BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
